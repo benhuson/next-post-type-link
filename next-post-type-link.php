@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Next Post Type Link
-Plugin URI: http://wordpress.org/extend/plugins/
+Plugin URI: https://github.com/benhuson/next-post-type-link
 Description: Next/Previous links for custom post types (currently only supports pages).
 Version: 0.1
 Author: Ben Huson
