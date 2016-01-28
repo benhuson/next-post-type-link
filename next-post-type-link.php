@@ -28,22 +28,27 @@ if ( ! function_exists( 'adjacent_post_type_link' ) ) {
 		
 		$default_format = $previous ? '&laquo; %link' : '%link &raquo;';
 		$args = wp_parse_args( $args, array(
-			'format' => $default_format,
-			'link'   => '%title',
-			'echo'   => true
+			'format'    => $default_format,
+			'link'      => '%title',
+			'echo'      => true,
+			'query'     => array()
 		) );
-		
-		$pagelist = get_posts( array(
-			'post_type'   => 'page',
-			'post_parent' => $post->post_parent
+
+		$query_args = wp_parse_args( $args['query'], array(
 			'posts_per_page' => -1,
+			'post_type'      => get_post_type( $post ),
 			'orderby'        => 'menu_order',
 			'order'          => 'asc',
+			'post_parent'    => $post->post_parent
 		) );
+
+		$pagelist = get_posts( $query_args );
+
 		$pages = array();
 		foreach ( $pagelist as $page ) {
 			$pages[] = $page->ID;
 		}
+
 		$current = array_search( $post->ID, $pages );
 		if ( ( $previous && ! isset( $pages[$current - 1] ) ) || ( ! $previous && ! isset( $pages[$current + 1] ) ) ) {
 			return;
