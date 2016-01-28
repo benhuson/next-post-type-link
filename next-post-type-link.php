@@ -34,11 +34,11 @@ if ( ! function_exists( 'adjacent_post_type_link' ) ) {
 		) );
 		
 		$pagelist = get_posts( array(
-			'numberposts' => -1,
 			'post_type'   => 'page',
-			'sort_column' => 'menu_order',
-			'sort_order'  => 'asc',
 			'post_parent' => $post->post_parent
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order',
+			'order'          => 'asc',
 		) );
 		$pages = array();
 		foreach ( $pagelist as $page ) {
