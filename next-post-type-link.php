@@ -4,7 +4,7 @@
 Plugin Name: Next Post Type Link
 Plugin URI: https://github.com/benhuson/next-post-type-link
 Description: Next/Previous links for custom post types (currently only supports pages).
-Version: 0.1
+Version: 0.2
 Author: Ben Huson
 Author URI: http://www.benhuson.co.uk
 License: GPL2
