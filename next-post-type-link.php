@@ -12,13 +12,13 @@ License: GPL2
 
 if ( ! function_exists( 'next_post_type_link' ) ) {
 	function next_post_type_link( $args = null ) {
-		adjacent_post_type_link( $args, false );
+		return adjacent_post_type_link( $args, false );
 	}
 }
 
 if ( ! function_exists( 'previous_post_type_link' ) ) {
 	function previous_post_type_link( $args = null ) {
-		adjacent_post_type_link( $args );
+		return adjacent_post_type_link( $args );
 	}
 }
 
@@ -67,10 +67,13 @@ if ( ! function_exists( 'adjacent_post_type_link' ) ) {
 			
 				$adjacent = $previous ? 'previous' : 'next';
 				$output = apply_filters( "{$adjacent}_page_link", $args['format'], $args['link'] );
-				
-				if ( $args['echo'] )
+
+				if ( $args['echo'] ) {
 					echo $output;
-				return $output;
+				} else {
+					return $output;
+				}
+
 			}
 		}
 	}
